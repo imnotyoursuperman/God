@@ -5,12 +5,12 @@ class Config(object):
     OWNER_ID = "2064735436"
     SUDOERS = "6295947116"
     GROUP_ID = -1002041217401
-    TOKEN = "7198935197:AAFh6XR9ZIk4OWA0rZHfptM_eLh4QaY69yA"
+    TOKEN = "6540514531:AAGCdNw3ezG3IR8KwAmADBlPzi-IBbgK890"
     mongo_url = "mongodb+srv://gotouhitoriii:7vzXrCihdSZfTtEs@haremgod.rxndc2y.mongodb.net/?retryWrites=true&w=majority"
     PHOTO_URL = ["https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url1.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url2.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url3.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url4.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url5.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url6.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url7.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url8.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url9.jpg", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url10.png", "https://raw.githubusercontent.com/theredactedentity/databasepics/main/photo_url11.png"]
-    SUPPORT_CHAT = "CHATHV3N"
-    UPDATE_CHAT = "LOGSHV3N"
-    BOT_USERNAME = "HaremGodBot"
+    SUPPORT_CHAT = "GlobalAnimeCommunityOfficial"
+    UPDATE_CHAT = "BotsByChad"
+    BOT_USERNAME = "DaTestRunBot"
     CHARA_CHANNEL_ID = "-1001782672183"
     api_id = 21927988
     api_hash = "e18f720acdff1e5b0ec80616aecd8a5a"
