@@ -13,7 +13,7 @@ from shivu import user_collection, collection, application, db
 
 # collection
 db.characters.create_index([('id', ASCENDING)])
-db.characters.create_index([('anime', ASCENDING)])
+db.characters.create_index([('sauce', ASCENDING)])
 db.characters.create_index([('img_url', ASCENDING)])
 
 # user_collection
@@ -41,7 +41,7 @@ async def inlinequery(update: Update, context: CallbackContext) -> None:
                 all_characters = list({v['id']:v for v in user['characters']}.values())
                 if search_terms:
                     regex = re.compile(' '.join(search_terms), re.IGNORECASE)
-                    all_characters = [character for character in all_characters if regex.search(character['name']) or regex.search(character['anime'])]
+                    all_characters = [character for character in all_characters if regex.search(character['name']) or regex.search(character['sauce'])]
             else:
                 all_characters = []
         else:
@@ -67,14 +67,14 @@ async def inlinequery(update: Update, context: CallbackContext) -> None:
     results = []
     for character in characters:
         global_count = await user_collection.count_documents({'characters.id': character['id']})
-        anime_characters = await collection.count_documents({'anime': character['anime']})
+        anime_characters = await collection.count_documents({'sauce': character['sauce']})
 
         if query.startswith('collection.'):
             user_character_count = sum(c['id'] == character['id'] for c in user['characters'])
-            user_anime_characters = sum(c['anime'] == character['anime'] for c in user['characters'])
-            caption = f"<b>ʟᴏᴏᴋ ᴀᴛ <a href='tg://user?id={user['id']}'>{(escape(user.get('first_name', user['id'])))}</a>'s ᴄʜᴀʀᴀᴄᴛᴇʀ ғʀᴏᴍ ᴛʜᴇɪʀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ</b>\n\n🌸: <b>{character['name']} (x{user_character_count})</b>\n🏖️: <b>{character['anime']} ({user_anime_characters}/{anime_characters})</b>\n<b>{character['type']}</b>\n\n<b>🆔️:</b> {character['id']}"
+            user_anime_characters = sum(c['sauce'] == character['sauce'] for c in user['characters'])
+            caption = f"<b>ʟᴏᴏᴋ ᴀᴛ <a href='tg://user?id={user['id']}'>{(escape(user.get('first_name', user['id'])))}</a>'s ᴄʜᴀʀᴀᴄᴛᴇʀ ғʀᴏᴍ ᴛʜᴇɪʀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ</b>\n\nɴᴀᴍᴇ🌸: <b>{character['name']} (x{user_character_count})</b>\nsᴀᴜᴄᴇ🏖️: <b>{character['sauce']} ({user_anime_characters}/{anime_characters})</b>\nᴛʏᴘᴇ:<b>{character['type']}</b>\n\n<b>🆔️:</b> {character['id']}"
         else:
-            caption = f"<b>ʟᴏᴏᴋ ᴀᴛ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ!!!</b>\n\n🌸:<b> {character['name']}</b>\n🏖️: <b>{character['anime']}</b>\n<b>{character['type']}</b>\n🆔️: <b>{character['id']}</b>\n\n<b>ɢʟᴏʙᴀʟʟʏ ɢᴜᴇssᴇᴅ: {global_count} ᴛɪᴍᴇs...</b>"
+            caption = f"<b>ʟᴏᴏᴋ ᴀᴛ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ!!!</b>\n\nɴᴀᴍᴇ🌸:<b> {character['name']}</b>\nsᴀᴜᴄᴇ🏖️: <b>{character['sauce']}</b>\nᴛʏᴘᴇ:<b>{character['type']}</b>\n🆔️: <b>{character['id']}</b>\n\n<b>ɢʟᴏʙᴀʟʟʏ ɢᴜᴇssᴇᴅ: {global_count} ᴛɪᴍᴇs...</b>"
         results.append(
             InlineQueryResultPhoto(
                 thumbnail_url=character['img_url'],
