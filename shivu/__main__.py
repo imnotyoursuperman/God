@@ -195,7 +195,7 @@ async def guess(update: Update, context: CallbackContext) -> None:
         keyboard = [[InlineKeyboardButton(f"See Harem", switch_inline_query_current_chat=f"collection.{user_id}")]]
 
 
-        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b>🍾🎉 You have collected a [New Character] ✅️🎊\n\nɴᴀᴍᴇ: <b>{last_characters[chat_id]["name"]}</b> \nᴀɴɪᴍᴇ: <b>{last_characters[chat_id]["anime"]}</b> \nᴛʏᴘᴇ: <b>{last_characters[chat_id]["type"]}</b>\n\n ᴛʜᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ʜᴀʀᴇᴍ!!!\n ᴜsᴇ /collection ᴛᴏ sᴇᴇ ʏᴏᴜʀ ʜᴀʀᴇᴍ', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
+        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b>🍾🎉 You have collected a [New Character] ✅️🎊\n\nɴᴀᴍᴇ: <b>{last_characters[chat_id]["name"]}</b> \n sᴀᴜᴄᴇ: <b>{last_characters[chat_id]["sauce"]}</b> \nᴛʏᴘᴇ: <b>{last_characters[chat_id]["type"]}</b>\n\n ᴛʜᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ʜᴀʀᴇᴍ!!!\n ᴜsᴇ /collection ᴛᴏ sᴇᴇ ʏᴏᴜʀ ʜᴀʀᴇᴍ', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
 
     else:
         await update.message.reply_text('❌ 𝚈𝚘𝚞 𝚔𝚗𝚘𝚠 𝚝𝚑𝚊𝚝 𝚒𝚜 𝚠𝚛𝚘𝚗𝚐 𝚛𝚒𝚐𝚑𝚝? ❌️')
