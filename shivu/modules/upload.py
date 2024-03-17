@@ -40,7 +40,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
             return
 
         character_name = args[1].replace('-', ' ').title()
-        anime = args[2].replace('-', ' ').title()
+        sauce = args[2].replace('-', ' ').title()
 
         try:
             urllib.request.urlopen(args[0])
@@ -60,7 +60,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
         character = {
             'img_url': args[0],
             'name': character_name,
-            'anime': anime,
+            'sauce': sauce,
             'type': type,
             'id': id
         }
@@ -69,7 +69,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
             message = await context.bot.send_photo(
                 chat_id=CHARA_CHANNEL_ID,
                 photo=args[0],
-                caption=f'<b>Character Name:</b> {character_name}\n<b>Anime Name:</b> {anime}\n<b>Type:</b> {type}\n<b>ID:</b> {id}\nAdded by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
+                caption=f'<b>Character Name:</b> {character_name}\n<b>Sauce:</b> {sauce}\n<b>Type:</b> {type}\n<b>ID:</b> {id}\nAdded by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
             )
             character['message_id'] = message.message_id
@@ -123,13 +123,13 @@ async def update(update: Update, context: CallbackContext) -> None:
             return
 
         # Check if field is valid
-        valid_fields = ['img_url', 'name', 'anime', 'type']
+        valid_fields = ['img_url', 'name', 'sauce', 'type']
         if args[1] not in valid_fields:
             await update.message.reply_text(f'Invalid field. Please use one of the following: {", ".join(valid_fields)}')
             return
 
         # Update field
-        if args[1] in ['name', 'anime']:
+        if args[1] in ['name', 'sauce']:
             new_value = args[2].replace('-', ' ').title()
         elif args[1] == 'type':
             type_map = {1: "🔴 Husbando", 2: "🔵 Trap", 3: "🟡 Waifu"}
@@ -149,7 +149,7 @@ async def update(update: Update, context: CallbackContext) -> None:
             message = await context.bot.send_photo(
                 chat_id=CHARA_CHANNEL_ID,
                 photo=new_value,
-                caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Type:</b> {character["type"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
+                caption=f'<b>Character Name:</b> {character["name"]}\n<b>Sauce:</b> {character["sauce"]}\n<b>Type:</b> {character["type"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
             )
             character['message_id'] = message.message_id
@@ -159,7 +159,7 @@ async def update(update: Update, context: CallbackContext) -> None:
             await context.bot.edit_message_caption(
                 chat_id=CHARA_CHANNEL_ID,
                 message_id=character['message_id'],
-                caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Type:</b> {character["type"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
+                caption=f'<b>Character Name:</b> {character["name"]}\n<b>Sauce:</b> {character["sauce"]}\n<b>Type:</b> {character["type"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
             )
 
