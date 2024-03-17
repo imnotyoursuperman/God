@@ -49,7 +49,7 @@ async def inlinequery(update: Update, context: CallbackContext) -> None:
     else:
         if query:
             regex = re.compile(query, re.IGNORECASE)
-            all_characters = list(await collection.find({"$or": [{"name": regex}, {"anime": regex}]}).to_list(length=None))
+            all_characters = list(await collection.find({"$or": [{"name": regex}, {"sauce": regex}]}).to_list(length=None))
         else:
             if 'all_characters' in all_characters_cache:
                 all_characters = all_characters_cache['all_characters']
