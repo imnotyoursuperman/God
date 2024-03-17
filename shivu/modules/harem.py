@@ -39,7 +39,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     current_characters = unique_characters[page*15:(page+1)*15]
 
     
-    current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['anime'])}
+    current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['source'])}
 
     for source, characters in current_grouped_characters.items():
         harem_message += f'\n<b>{source} {len(characters)}/{await collection.count_documents({"source": source})}</b>\n'
