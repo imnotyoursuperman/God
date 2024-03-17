@@ -20,7 +20,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
             await update.callback_query.edit_message_text('😮‍💨 ᴀᴛ ʟᴇᴀsᴛ ᴄᴏʟʟᴇᴄᴛ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ ғɪʀsᴛ, ʏᴏᴜ ʜᴀᴠᴇ ɴᴏᴛ ᴇᴠᴇɴ ᴛʀɪᴇᴅ ʏᴇᴛ....')
         return
 
-    characters = sorted(user['characters'], key=lambda x: (x['source'], x['id']))
+    characters = sorted(user['characters'], key=lambda x: (x['sauce'], x['id']))
 
     character_counts = {k: len(list(v)) for k, v in groupby(characters, key=lambda x: x['id'])}
 
@@ -39,10 +39,10 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     current_characters = unique_characters[page*15:(page+1)*15]
 
     
-    current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['source'])}
+    current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['sauce'])}
 
-    for source, characters in current_grouped_characters.items():
-        harem_message += f'\n<b>{source} {len(characters)}/{await collection.count_documents({"source": source})}</b>\n'
+    for sauce, characters in current_grouped_characters.items():
+        harem_message += f'\n<b>{sauce} {len(characters)}/{await collection.count_documents({"sauce": sauce})}</b>\n'
 
         for character in characters:
             
