@@ -44,7 +44,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("Support", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("Updates", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("Help", callback_data='help')],
-            [InlineKeyboardButton("Maintainer", url=f'https://t.me/sonofheavenandearth')]
+            [InlineKeyboardButton("Maintainer", url=f'https://t.me/hitoriiidayo/')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         photo_url = random.choice(PHOTO_URL)
@@ -58,7 +58,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("Support", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("Updates", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("Help", callback_data='help')],
-            [InlineKeyboardButton("Maintainer", url=f'https://t.me/sonofheavenandearth')]
+            [InlineKeyboardButton("Maintainer", url=f'https://t.me/hitoriiidayo/')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -104,7 +104,7 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("Support", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("Updates", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("Help", callback_data='help')],
-            [InlineKeyboardButton("Maintainer", url=f'https://t.me/sonofheavenandearth')]
+            [InlineKeyboardButton("Maintainer", url=f'https://t.me/hitoriiidayo/')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
