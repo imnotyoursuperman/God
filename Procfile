@@ -1,1 +1,1 @@
-web: python -m shivu
+worker: python -m shivu
