@@ -64,14 +64,14 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /root/FallenRobot
-RUN git clone https://github.com/Mynameishekhar/ptb /root/ptb
+RUN git clone https://github.com/imnotyoursuperman/God /root/ptb
 WORKDIR /root/ptb
 
 
 ENV PATH="/home/bot/bin:$PATH"
 
 # Install requirements
-RUN pip3 install -U -r requirements.txt
+RUN pip3 install -U -r requirements.txt && pip install --upgrade pip
 
 # Starting Worker
 CMD ["python3","-m", "shivu"]
